@@ -1,5 +1,4 @@
-
-#Defining functions for scipy and params for matplotlib
+#Defining functions for scipy
 import numpy as np
 
 #Gaussian
