@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-#Importing python libraries
 
+#Importing python libraries
 import numpy as np
-import  matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import scipy.optimize as spy
+import os
 
 #Uncomment the next two lines if the input .txt files are large.
 #import sys
@@ -15,12 +16,21 @@ import func
 fnt = 20
 wht = 'bold'
 
+#Creating folder for output csv files
+if os.path.isdir('spdc_g2_csv_files') == True:
+    pass#If folder already exists then do nothing to prevent os error
+else:
+     os.os.mkdir('spdc_g2_csv_files')
+
 #Angular Dependence analysis
 
 #Data collected in the quantum lab
 X = [-1,-0.8,-0.6,-0.4,-0.2,0,0.2,0.4,0.6,0.8,1]#millimetres
 x = 10*np.array(X)#centimetres
 coincidence = [15,25,350,3000,5700,5800,4300,700,50,20,20]
+
+#Uncomment the next lines if the file is to be loaded in via a .txt file
+#x, coincidence = np.loadtxt('name of file', unpack = 'True', delimiter = 'delimiter in .txt file')
 
 #xdata and inital params for scipy
 xdata = np.linspace(x[0],x[-1], 1000)
@@ -60,6 +70,9 @@ print('Sigma =  %.2f +/- %.2f ' % (popt[2], np.sqrt(pcov[2, 2])))
 #Data collected in the quantum lab
 polar = [-90,-80,-70,-60,-50,-40,-30,-20,-10,0,10,20,30,40,50,60,70,80,90]
 coincidence2 = [0,0,5,25,130,470,1160,2210,3200,3600,3400,2660,1624,699,239,48,4,0,0]
+
+#Uncomment the next lines if the file is to be loaded in via a .txt file
+#polar, coincidence2 = np.loadtxt('name of file', unpack = 'True', delimiter = 'delimiter in .txt file')
 
 #xdata and inital params for scipy
 xdata = np.linspace(polar[0],polar[-1], 1000)
