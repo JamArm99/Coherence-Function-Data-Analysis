@@ -8,11 +8,11 @@ import scipy.optimize as spy
 import os
 import csv
 
+import func
+
 #Uncomment the next two lines if the input .txt files are large.
 #import sys
 #sys.setrecursionlimit(N)
-
-import func
 
 #Defining plot and file params
 fnt = 20
