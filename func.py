@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #Defining functions for scipy
 import numpy as np
 
