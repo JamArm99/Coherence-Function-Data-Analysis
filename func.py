@@ -3,10 +3,14 @@ import numpy as np
 
 #Gaussian
 def gaussian(x, a, b, c):
+    if a ==0 or c==0:
+        raise ValueError('Gaussian coefficient can not be 0')
     return a * np.exp((-(x-b)**2)/(2*c*c))
 
 #Full Width at Half Maximum
 def FWHM(sigma):
+    if sigma ==0:
+        raise ValueError('Width of Gaussian can not be 0')
     return 2*sigma*((2*np.log(2))**(1/2))
 
 #Second-order coherence function
