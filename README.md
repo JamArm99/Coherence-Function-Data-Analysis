@@ -45,4 +45,4 @@ or
 $ python3 test_spdc_g2.py
 ```
 ## Outputs
-Two folders are either created or overwritten when the primary analysis is executed. csv files are created for each of the Gaussian modelling sub-analyses and the g<sup>2</sup>(τ) analysis. In order to keep the working directory clear, these files are stored in the folder **_ spdc_g2_csv_files_**. Image files are also produced for each analysis and are stored in the folder **_ spdc_g2_png_files _**. 
+Two folders are either created or overwritten when the primary analysis is executed. csv files are created for each of the Gaussian modelling sub-analyses and the g<sup>2</sup>(τ) analysis. In order to keep the working directory clear, these files are stored in the folder **_spdc_g2_csv_files_**. Image files are also produced for each analysis and are stored in the folder **_spdc_g2_png_files_**. 
