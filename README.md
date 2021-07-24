@@ -13,6 +13,14 @@ Python modules utilised in this analysis:
 - csv
 - unittest
 
+To install any missing modules excecute
+```
+python3 -m pip install missing-moduule-name
+```
+or
+```
+pip3 install missing-module-name
+```
 ### Download
 To download this analysis just clone this repository.
 ```
