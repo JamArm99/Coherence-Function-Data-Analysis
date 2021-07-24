@@ -3,7 +3,6 @@
 #Importing python libraries
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.lib.function_base import angle
 import scipy.optimize as spy
 import os
 import csv
@@ -210,21 +209,12 @@ xdata_hist = np.linspace(0,4, 1000)
 amp_hist = 5000
 x0_hist = 1.5
 sd_hist = 1
-<<<<<<< HEAD
 
 p_hist = [amp_hist,x0_hist,sd_hist]
 popt_hist, pcov_hist  = spy.curve_fit(func.gaussian, time_diffs_nm, counts, p_hist)
 
 hist_dic = {}
 
-=======
-
-p_hist = [amp_hist,x0_hist,sd_hist]
-popt_hist, pcov_hist  = spy.curve_fit(func.gaussian, time_diffs_nm, counts, p_hist)
-
-hist_dic = {}
-
->>>>>>> 88091c1bbb4dff49077fba8bc06bae61e96dc2df
 #Gaussian parameters stored in dictionary
 for i in range(0,3):
     if i == 0:
