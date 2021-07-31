@@ -49,7 +49,7 @@ python3 spdc_g2.py
 
 ### test_spdc_g2.py
 
-This script is designed to run tests on the functions defined in **_func.py_**. The essential functions are the Gaussian and Full Width at Half-Maximum (FWHM) functions. Using unittest, these functions can be tested to ensure the desired result when called upon in the main script. The Gaussian function can be tested by ensuring it returns a normal distribution when passing data using the Shapiro-Wilk test. In addition, the correct errors are received when passing unphysical arguments into the function.
+This script is designed to run tests on the functions defined in **_func_spdc_g2.py_**. The essential functions are the Gaussian and Full Width at Half-Maximum (FWHM) functions. Using unittest, these functions can be tested to ensure the desired result when called upon in the main script. The Gaussian function can be tested by ensuring it returns a normal distribution when passing data using the Shapiro-Wilk test. In addition, the correct errors are received when passing unphysical arguments into the function.
 
 ```
 python3 -m unittest test_spdc_g2.py
