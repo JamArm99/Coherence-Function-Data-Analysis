@@ -18,13 +18,13 @@ Python modules utilised in this analysis:
 
 To install any missing modules excecute
 
-```
+```bash
 python3 -m pip install missing-moduule-name
 ```
 
 or
 
-```
+```bash
 pip3 install missing-module-name
 ```
 
@@ -32,7 +32,7 @@ pip3 install missing-module-name
 
 To download this analysis just clone this repository and then move to that directory to excecute.
 
-```
+```bash
 git clone https://github.com/JamArm99/Coherence-Function-Data-Analysis.git
 cd Coherence-Function-Data-Analysis
 ```
@@ -43,7 +43,7 @@ cd Coherence-Function-Data-Analysis
 
 This script conducts the primary analysis. It takes input from text files in the **_txt_input_files_** directory and uses this data to perform a series of calculations. Gaussian modelling is used for angle and polarisation dependence, laser emission spectra, and coincidence time window analysis. All the Gaussian parameters such as peak height, centre and width are computed along with their error. g<sup>2</sup>(τ) is determined for both heralded and unheralded experiments by averaging data around specific regions.
 
-```
+```bash
 python3 spdc_g2.py
 ```
 
@@ -51,13 +51,13 @@ python3 spdc_g2.py
 
 This script is designed to run tests on the functions defined in **_func_spdc_g2.py_**. The essential functions are the Gaussian and Full Width at Half-Maximum (FWHM) functions. Using unittest, these functions can be tested to ensure the desired result when called upon in the main script. The Gaussian function can be tested by ensuring it returns a normal distribution when passing data using the Shapiro-Wilk test. In addition, the correct errors are received when passing unphysical arguments into the function.
 
-```
+```bash
 python3 -m unittest test_spdc_g2.py
 ```
 
 or
 
-```
+```bash
 python3 test_spdc_g2.py
 ```
 
