@@ -7,7 +7,7 @@ import scipy.optimize as spy
 import os
 import csv
 
-import func
+import func_spdc_g2
 
 #Uncomment the next two lines if the input .txt files are large.
 #import sys
@@ -50,7 +50,7 @@ sd_angle = 0.03*(2*x_mm[-1])
 
 p_angle = [amp_angle,x0_angle,sd_angle]#Initial guess list for scipy optimise
 #Optimised parameters and covarience matrix for angluar dependence
-popt_angle, pcov_angle  = spy.curve_fit(func.gaussian, x_mm, coincidence_angle, p_angle)
+popt_angle, pcov_angle  = spy.curve_fit(func_spdc_g2.gaussian, x_mm, coincidence_angle, p_angle)
 
 angle_dic = {}
 
@@ -62,7 +62,7 @@ for i in range(0,3):
         angle_dic['Centre'] = popt_angle[i], np.sqrt(pcov_angle[i,i])#Optimised peak centre and error
     else:
         angle_dic['Sigma'] = popt_angle[i],np.sqrt(pcov_angle[i,i])#Optimised sigma and error
-        fwhm_angle = func.FWHM(popt_angle[i])
+        fwhm_angle = func_spdc_g2.FWHM(popt_angle[i])
         angle_dic['FWHM'] = fwhm_angle,np.sqrt(pcov_angle[2,2])/popt_angle[2] * fwhm_angle #Optimsied FWHM and error
 
 #Writing file to csv folder
@@ -74,7 +74,7 @@ with open('spdc_g2_csv_files/angle.csv', 'w') as file_angle:
         w.writerow(row)
 
 #Gaussian model data
-ydata_angle = func.gaussian(xdata_angle,popt_angle[0],popt_angle[1],popt_angle[2])
+ydata_angle = func_spdc_g2.gaussian(xdata_angle,popt_angle[0],popt_angle[1],popt_angle[2])
 
 #matplotlib plot for angular dependence
 fig = plt.figure(figsize = (10,8))
@@ -106,7 +106,7 @@ x0_polar = 0
 sd_polar = 0.03*(2*polar[-1])
 
 p_polar = [amp_polar,x0_polar,sd_polar]#Initial guess list for scipy optimise
-popt_polar, pcov_polar  = spy.curve_fit(func.gaussian, polar, coincidence_polar, p_polar)
+popt_polar, pcov_polar  = spy.curve_fit(func_spdc_g2.gaussian, polar, coincidence_polar, p_polar)
 
 polar_dic = {}
 
@@ -118,7 +118,7 @@ for i in range(0,3):
         polar_dic['Centre'] = popt_polar[i], np.sqrt(pcov_polar[i,i])#Optimised peak centre and error
     else:
         polar_dic['Sigma'] = popt_polar[i],np.sqrt(pcov_polar[i,i])#Optimised sigma and error
-        fwhm_polar = func.FWHM(popt_polar[i])
+        fwhm_polar = func_spdc_g2.FWHM(popt_polar[i])
         polar_dic['FWHM'] = fwhm_polar,np.sqrt(pcov_polar[2,2])/popt_polar[2] * fwhm_polar #Optimsied FWHM and error
 
 #Writing file to csv folder
@@ -130,7 +130,7 @@ with open('spdc_g2_csv_files/polar.csv', 'w') as file_polar:
         w.writerow(row)
 
 #Gaussian model data
-ydata_polar = func.gaussian(xdata_polar,popt_polar[0],popt_polar[1],popt_polar[2])
+ydata_polar = func_spdc_g2.gaussian(xdata_polar,popt_polar[0],popt_polar[1],popt_polar[2])
 
 #matplotlib plot for polarisation dependence
 fig = plt.figure(figsize = (10,8))
@@ -159,7 +159,7 @@ x0_emission = 808
 sd_emission = 0.03*(2*wavelength[-1])
 
 p_emission = [amp_emission,x0_emission,sd_emission]
-popt_emission, pcov_emission  = spy.curve_fit(func.gaussian, wavelength, intensity, p_emission)
+popt_emission, pcov_emission  = spy.curve_fit(func_spdc_g2.gaussian, wavelength, intensity, p_emission)
 
 emission_dic = {}
 
@@ -171,7 +171,7 @@ for i in range(0,3):
         emission_dic['Centre'] = popt_emission[i], np.sqrt(pcov_emission[i,i])#Optimised peak centre and error
     else:
         emission_dic['Sigma'] = popt_emission[i],np.sqrt(pcov_emission[i,i])#Optimised sigma and error
-        fwhm_emission = func.FWHM(popt_emission[i])
+        fwhm_emission = func_spdc_g2.FWHM(popt_emission[i])
         emission_dic['FWHM'] = fwhm_emission,np.sqrt(pcov_emission[2,2])/popt_emission[2] * fwhm_emission #Optimsied FWHM and error
 
 #Writing file to csv folder
@@ -183,7 +183,7 @@ with open('spdc_g2_csv_files/emission.csv', 'w') as file_emission:
         w.writerow(row)
 
 #Gaussian model data
-ydata_emission = func.gaussian(xdata_emission,popt_emission[0],popt_emission[1],popt_emission[2])
+ydata_emission = func_spdc_g2.gaussian(xdata_emission,popt_emission[0],popt_emission[1],popt_emission[2])
 
 #matplotlib plot for laser
 fig = plt.figure(figsize = (10,8))
@@ -211,7 +211,7 @@ x0_hist = 1.5
 sd_hist = 1
 
 p_hist = [amp_hist,x0_hist,sd_hist]
-popt_hist, pcov_hist  = spy.curve_fit(func.gaussian, time_diffs_nm, counts, p_hist)
+popt_hist, pcov_hist  = spy.curve_fit(func_spdc_g2.gaussian, time_diffs_nm, counts, p_hist)
 
 hist_dic = {}
 
@@ -223,7 +223,7 @@ for i in range(0,3):
         hist_dic['Centre'] = popt_hist[i], np.sqrt(pcov_hist[i,i])#Optimised peak centre and error
     else:
         hist_dic['Sigma'] = popt_hist[i],np.sqrt(pcov_hist[i,i])#Optimised sigma and error
-        fwhm_hist = func.FWHM(popt_hist[i])
+        fwhm_hist = func_spdc_g2.FWHM(popt_hist[i])
         hist_dic['FWHM'] = fwhm_hist,np.sqrt(pcov_hist[2,2])/popt_hist[2] * fwhm_hist #Optimsied FWHM and error
 
 #Writing file to csv folder
@@ -235,7 +235,7 @@ with open('spdc_g2_csv_files/hist.csv', 'w') as file_hist:
         w.writerow(row)
 
 #Gaussian model data
-ydata_hist = func.gaussian(xdata_hist,1.45*popt_hist[0],popt_hist[1],popt_hist[2])
+ydata_hist = func_spdc_g2.gaussian(xdata_hist,1.45*popt_hist[0],popt_hist[1],popt_hist[2])
 
 #matplotlib plot for histogram
 fig = plt.figure(figsize = (10,8))
@@ -302,7 +302,7 @@ for i,j in Tot:
 
 #Gaussian fit to model g2 dip at 0 time delay
 xdata_her = np.linspace(-15,15, 1000)
-ydata_her = func.g2_func(xdata_her,1.1)
+ydata_her = func_spdc_g2.g2_func(xdata_her,1.1)
 
 #matplotlib plot for heralded photon Gaussian fitting
 fig = plt.figure(figsize = (10,8))
